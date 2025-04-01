@@ -50,7 +50,7 @@ Endpoint: /api/tasks
 Request Body:
 
 {
-  "title": "Buy groceries",
+  "title": "Buy Supplies",
   "description": "Get milk, eggs, and bread"
 }
 
@@ -58,7 +58,7 @@ Response:
 
 {
   "id": 1,
-  "title": "Buy groceries",
+  "title": "Buy Supplies",
   "description": "Get milk, eggs, and bread",
   "status": "pending"
 }
@@ -74,7 +74,7 @@ Response:
 [
   {
     "id": 1,
-    "title": "Buy groceries",
+    "title": "Buy Supplies",
     "description": "Get milk, eggs, and bread",
     "status": "pending"
   }
@@ -90,7 +90,7 @@ Response:
 
 {
   "id": 1,
-  "title": "Buy groceries",
+  "title": "Buy Supplies",
   "description": "Get milk, eggs, and bread",
   "status": "pending"
 }
@@ -104,7 +104,7 @@ Endpoint: /api/tasks/:id
 Request Body:
 
 {
-  "title": "Buy groceries and fruits",
+  "title": "Buy supplies and fruits",
   "status": "completed"
 }
 
@@ -112,7 +112,7 @@ Response:
 
 {
   "id": 1,
-  "title": "Buy groceries and fruits",
+  "title": "Buy supplies and fruits",
   "description": "Get milk, eggs, and bread",
   "status": "completed"
 }
@@ -126,7 +126,7 @@ Endpoint: /api/tasks/:id
 Response:
 
 {
-  "message": "Task deleted successfully"
+  "message": "Task deleted ✅"
 }
 
 Next Steps
