@@ -3,7 +3,7 @@ const express = require ('express');
 const app = express();
 const dotenv = require("dotenv");
 require('dotenv').config();
-const mongoose = require('mongoose');
+const mongoose = require('mongoose');//optional for database
 dotenv.config()
 
 //link database(optional)
@@ -18,7 +18,8 @@ app.use(express.json())
 const task = []// Store tasks in memory
 let items =[
   {id:"1", title:"Purchase Supplies", descriton: "Get milk, eggs and bread"}
-] // Generate unique task IDs
+] // Generate unique task ID's & Description
+
 //BASIC CRUD OPERATION
 
 //Create
