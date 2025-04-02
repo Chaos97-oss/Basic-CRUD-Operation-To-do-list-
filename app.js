@@ -15,9 +15,8 @@ app.use(express.json())
 
 
 
-const task = []// Store tasks in memory
 let items =[
-  {id:"1", title:"Purchase Supplies", descriton: "Get milk, eggs and bread"}
+  {id:"1", title:"Purchase Supplies", description: "Get milk, eggs and bread"}
 ] // Generate unique task ID's & Description
 
 //BASIC CRUD OPERATION
@@ -34,11 +33,11 @@ app.post('/task', async(req, res) =>{
     });
   }
   const newTask ={
-    id:task.length + 1,
+    id: (items.length + 1).toString(),
     title, 
     description
   };
-  task.push(newTask)
+  items.push(newTask)
   res.status(200).json({
     message: "Task Created!",
     task: newTask
@@ -47,34 +46,35 @@ app.post('/task', async(req, res) =>{
   })
 
 //Read
-app.get('/', (req, res) => {
-  res.json('To Do List!');
+app.get('/task', (req, res) => {
+  res.json({
+    items: items,
+  });
 });
 
 //Update
 app.put('/task/:id', async (req, res) => {
-  const{ id } = req.params
-  const { title, descrption } = req.body
+  const taskid = req.params.id;
+  const { title, description } = req.body;
   
-  if(!title || ! descrption){
+  if(!title || ! description){
     return res.status(400).json({
       message: 'Title and Desctiption not found' });
   
     }
     //find the task
-    const task = items.find(t => t.id === taskid);
+    const freshTask = items.find(t => t.id === taskid);
  
  
-  if (!task){
+  if (!freshTask){
     return res.status(404).json({
-      message: "Task unavailable",
-      task: todoUpdate});
+      message: "Task unavailable"});
     }
     //update the task
-    task.title = title;
-    task.descriton = description;
-    res.status(200).json({message:"Task updated ✅", task});
-});
+    freshTask.title = title;
+    freshTask.descriton = description;
+    res.status(200).json({message:"Task updated ✅", items: freshTask})
+}); 
 //Delete
 app.delete('/task/:id',(req, res)=>{
 const taskId = req.params.id;
